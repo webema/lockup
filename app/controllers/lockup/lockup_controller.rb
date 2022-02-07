@@ -43,7 +43,7 @@ module Lockup
     private
 
     def set_cookie
-      cookies[:lockup] = { value: @codeword.to_s.downcase, expires: (Time.now + lockup_cookie_lifetime) }
+      cookies[:lockup] = { value: @codeword.to_s.downcase, expires: (Time.now + lockup_cookie_lifetime), domain: ENV['LOCKUP_DOMAIN'] }
     end
 
     def run_redirect
